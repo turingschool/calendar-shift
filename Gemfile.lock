@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    icalendar (2.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  icalendar (~> 2.2.1)
