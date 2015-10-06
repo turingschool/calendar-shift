@@ -10,6 +10,14 @@ class Calendar
     @calendar = Icalendar.parse(ical).first
   end
 
+  def inspect
+    to_s
+  end
+
+  def to_s
+    "Turing Calendar: #{title}"
+  end
+
   def title
     calendar.custom_properties["x_wr_calname"].first
   end
