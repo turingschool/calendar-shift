@@ -1,9 +1,9 @@
 require 'active_support'
 require './lib/calendar_collection'
 
-START = Date.parse("2015-10-12")
-FINISH = Date.parse("2015-10-30")
-OFFSET = 7.weeks
+START = Date.parse("2015-11-02")
+FINISH = Date.parse("2015-11-20")
+OFFSET = 9.weeks
 
 DATES = (START..FINISH).to_a
 
