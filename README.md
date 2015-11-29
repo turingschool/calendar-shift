@@ -5,5 +5,6 @@ A little script that downloads the current Turing calendars in their iCalendar f
 ## Usage
 
 ```rb
-ruby scheduler.rb
+$ bundle
+$ bundle exec ruby scheduler.rb
 ```
