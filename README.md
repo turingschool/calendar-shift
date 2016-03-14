@@ -16,4 +16,4 @@ From time to time you may decide you need to add a new calendar to the list that
 
 The address will look something like this `casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com`.
 
-You can find it by going into the "Calendar Settings" menu on Gmail and scrolling down to the "Calendar Address" section and copying the "Calendar ID".
+You can find it by going into the "Calendar Settings" menu on Google Calender and scrolling down to the "Calendar Address" section and copying the "Calendar ID".
