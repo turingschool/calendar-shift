@@ -35,3 +35,7 @@ From time to time you may decide you need to add a new calendar to the list that
 The address will look something like this `casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com`.
 
 You can find it by going into the "Calendar Settings" menu on Google Calendar and scrolling down to the "Calendar Address" section and copying the "Calendar ID".
+
+### Importing the calendar to Google Calendar
+
+Under the settings option in google calendar, there is a tab "calendars". Upon clicking that and scrolling down, there will be an "import calendar" link. Click that link, find the file to import and choose the correct calendar to append to. It should import!
