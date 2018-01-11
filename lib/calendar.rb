@@ -38,8 +38,8 @@ class Calendar
       event_start_time = event.dtstart
       event_end_time = event.dtend
       new_calendar.event do |e|
-        e.dtstart     = Icalendar::Values::DateTime.new(event_start_time + offset - 6.hours)
-        e.dtend       = Icalendar::Values::DateTime.new(event_end_time + offset - 6.hours)
+        e.dtstart     = Icalendar::Values::DateTime.new event_start_time + offset + Time.now.utc_offset
+        e.dtend       = Icalendar::Values::DateTime.new event_end_time + offset + Time.now.utc_offset
         e.summary     = event.summary
         e.description = event.description
       end
