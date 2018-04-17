@@ -13,10 +13,11 @@ puts "Enter offset in # weeks:"
 print "(default: 7)> "
 
 input = gets.chomp
+require 'pry'; binding.pry
 offset = if input.empty?
-           7.weeks
+           7 * (7*24*60*60)
          else
-           input.to_i.weeks
+           input.to_i * (7*24*60*60)
          end
 
 calendars = CalendarCollection.new
