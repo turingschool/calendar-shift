@@ -38,4 +38,4 @@ You can find it by going into the "Calendar Settings" menu on Google Calendar an
 
 ### Importing the calendar to Google Calendar
 
-Under the settings option in google calendar, there is a tab "calendars". Upon clicking that and scrolling down, there will be an "import calendar" link. Click that link, find the file to import and choose the correct calendar to append to. It should import!
+On the right side of calendar.google.com. there is a text field where you can search for co-workers calendars. To the right of it, there is a plus for add other calendars. Click it and then click import. You can then import the .ics file that was created and put in the Output folder.
