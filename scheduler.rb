@@ -1,15 +1,15 @@
 require 'active_support'
 require './lib/calendar_collection'
 
-puts "Enter start date -- probably the first day of the last module:"
+puts "Enter start date -- the first day of the inning you want to copy:"
 print "<YYYY-MM-DD> (e.g. 2015-11-02)> "
 start = Date.parse(gets.chomp)
 
-puts "Enter end date -- probably the last day of the last module:"
+puts "Enter end date -- the last day of the last inning to copy:"
 print "<YYYY-MM-DD> (e.g. 2015-11-02)> "
 finish = Date.parse(gets.chomp)
 
-puts "Enter offset in # weeks:"
+puts "How many weeks of data are we copying (include intermission week/weeks AFTER the inning too!!)"
 print "(default: 7)> "
 
 input = gets.chomp
