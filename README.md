@@ -12,7 +12,7 @@ $ bundle exec ruby scheduler.rb
 When prompted, enter the Start and End dates for the module you want to copy.
 
 In pretty much every case, the start date would be the **first Monday** of the previous module and the end date would be the **last Friday** of the previous module.
-You can also enter a custom offset, but in most cases you will want 7 (6 week module + 1 week intermission).
+You can also enter a custom offset, but in most cases you will want 7 (6 week module + 1 week intermission). If it is a double intermission, you would enter 8.
 
 The process should look like this:
 
@@ -38,4 +38,4 @@ You can find it by going into the "Calendar Settings" menu on Google Calendar an
 
 ### Importing the calendar to Google Calendar
 
-Under the settings option in google calendar, there is a tab "calendars". Upon clicking that and scrolling down, there will be an "import calendar" link. Click that link, find the file to import and choose the correct calendar to append to. It should import!
+On the right side of calendar.google.com. there is a text field where you can search for co-workers calendars. To the right of it, there is a plus for add other calendars. Click it and then click import. You can then import the .ics file that was created and put in the Output folder.

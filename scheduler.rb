@@ -13,7 +13,6 @@ puts "How many weeks of data are we copying (include intermission week/weeks AFT
 print "(default: 7)> "
 
 input = gets.chomp
-require 'pry'; binding.pry
 offset = if input.empty?
            7 * (7*24*60*60)
          else
