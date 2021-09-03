@@ -2,8 +2,18 @@
 
 A little script that downloads the current Turing calendars in their iCalendar format and spits out new calendars with those events shifted into the future.
 
-## Usage
+## Installation
 
+```rb
+$ git clone git@github.com:turingschool/calendar-shift.git
+$ cd calendar-shift
+```
+*Note: If you don't have Ruby installed, you will need to do that now.*
+
+## Usage
+First, open up the `calendar_collection.rb` file and uncomment the calendar that you'd like to copy over. All other calendars should be commented out. If the calendar you'd like to copy isn't in that list, follow the steps outlined at the bottom of this README.  
+
+Then, run the following in the terminal:
 ```rb
 $ bundle
 $ bundle exec ruby scheduler.rb
@@ -25,17 +35,16 @@ Enter end date -- probably the last day of the last module:
 Enter offset in # weeks:
 (default: 7)>
 ```
-
-
-### Adding a new calendar to the collection
-
-From time to time you may decide you need to add a new calendar to the list that get scraped by the script. To do this, you need to add the new public (HTML) address for the calendar to the `CALENDARS` to the [calendar_collection.rb](https://github.com/turingschool/calendar-shift/blob/master/lib/calendar_collection.rb) file.
-
-
-The address will look something like this `casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com`.
-
-You can find it by going into the "Calendar Settings" menu on Google Calendar and scrolling down to the "Calendar Address" section and copying the "Calendar ID".
+You''ll know that it worked, because you should see a new `.ics` file in the `output` folder. That's the file we're going to import into Google Calendar!
 
 ### Importing the calendar to Google Calendar
 
-On the right side of calendar.google.com. there is a text field where you can search for co-workers calendars. To the right of it, there is a plus for add other calendars. Click it and then click import. You can then import the .ics file that was created and put in the Output folder.
+On the left toolbar in Google Calendar, click the + next to "Other calendars" and then click "Import." Where is says "Select file from your computer," upload the `.ics` file from the `output` folder. Click "Import" and the events should now appear as expected. 
+
+### (if needed) Adding a new calendar to the collection
+
+From time to time you may decide you need to add a new calendar to the list that get scraped by the script. To do this, you need to add the new public (HTML) address for the calendar to the `CALENDARS` to the [calendar_collection.rb](https://github.com/turingschool/calendar-shift/blob/master/lib/calendar_collection.rb) file.
+
+The address will look something like this `casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com`.
+
+You can find it by going into the settings for the specific calendar in Google Calendar and scrolling down to the "Integrate calendar" section and copying the "Calendar ID".
