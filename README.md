@@ -4,7 +4,7 @@ A little script that downloads the current Turing calendars in their iCalendar f
 
 ## Installation
 
-```shell
+```
 $ git clone git@github.com:turingschool/calendar-shift.git
 $ cd calendar-shift
 ```
@@ -15,7 +15,7 @@ First, open up the `calendar_collection.rb` file and uncomment the calendar that
 *Note: If you don't have Ruby installed, you will need to do that now.*
 
 Then, run the following in the terminal:
-```shell
+```
 $ bundle
 $ bundle exec ruby scheduler.rb
 ```
@@ -27,7 +27,7 @@ You can also enter a custom offset, but in most cases you will want 7 (6 week mo
 
 The process should look like this:
 
-```shell
+```
 worace @ calendar-shift ➸  bundle exec ruby scheduler.rb
 Enter start date -- probably the first day of the last module:
 <YYYY-MM-DD> (e.g. 2015-11-02)> 2016-05-09
