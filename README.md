@@ -12,8 +12,6 @@ $ cd calendar-shift
 ## Usage
 First, open up the `lib/calendar_collection.rb` file and uncomment the calendar that you'd like to copy over. All other calendars should be commented out. If the calendar you'd like to copy isn't in that list, follow the steps outlined at the bottom of this README. 
 
-*Note: If you don't have Ruby installed, you will need to do that now.*
-
 Then, run the following in the terminal:
 ```
 $ bundle
