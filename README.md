@@ -8,10 +8,11 @@ A little script that downloads the current Turing calendars in their iCalendar f
 $ git clone git@github.com:turingschool/calendar-shift.git
 $ cd calendar-shift
 ```
-*Note: If you don't have Ruby installed, you will need to do that now.*
 
 ## Usage
-First, open up the `calendar_collection.rb` file and uncomment the calendar that you'd like to copy over. All other calendars should be commented out. If the calendar you'd like to copy isn't in that list, follow the steps outlined at the bottom of this README.  
+First, open up the `calendar_collection.rb` file and uncomment the calendar that you'd like to copy over. All other calendars should be commented out. If the calendar you'd like to copy isn't in that list, follow the steps outlined at the bottom of this README. 
+
+*Note: If you don't have Ruby installed, you will need to do that now.*
 
 Then, run the following in the terminal:
 ```shell
