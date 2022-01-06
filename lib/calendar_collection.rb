@@ -18,9 +18,6 @@ class CalendarCollection
     # BE Mod 3
     # "casimircreative.com_e9k9b6n7bok174ilmqbfdr0sc4@group.calendar.google.com",
 
-    # BE Mod 4:
-    # "casimircreative.com_r9jfiq9f37h6rdt2s8ssofss4k@group.calendar.google.com"
-
     # FE Mod 1:
     # "casimircreative.com_m6bndqol81h6jdlnpo0a6raot0@group.calendar.google.com"
 
@@ -30,6 +27,8 @@ class CalendarCollection
     # FE Mod 3:
     # "casimircreative.com_krb9p35ck35m4uoji5d2715844@group.calendar.google.com"
 
+    # Combined Mod 4:
+    # casimircreative.com_c1s3vspg5v09vh5cnnh88dn2nc@group.calendar.google.com
   ]
 
   def initialize
