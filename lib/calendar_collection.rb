@@ -7,8 +7,6 @@ class CalendarCollection
   attr_reader :calendars
 
   CALENDARS = [
-    # "casimircreative.com_isoih6973tpoq1i8mf3nqs3mno@group.calendar.google.com",
-
     # BE Mod 1:
     # "casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com",
 
