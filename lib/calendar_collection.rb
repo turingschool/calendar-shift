@@ -26,7 +26,7 @@ class CalendarCollection
     # "casimircreative.com_krb9p35ck35m4uoji5d2715844@group.calendar.google.com"
 
     # Combined Mod 4:
-    # casimircreative.com_c1s3vspg5v09vh5cnnh88dn2nc@group.calendar.google.com
+    # "casimircreative.com_c1s3vspg5v09vh5cnnh88dn2nc@group.calendar.google.com"
   ]
 
   def initialize
