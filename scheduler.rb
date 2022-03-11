@@ -14,9 +14,9 @@ print "(default: 7)> "
 
 input = gets.chomp
 offset = if input.empty?
-           7 * (7*24*60*60)
+           7
          else
-           input.to_i * (7*24*60*60)
+           input.to_i
          end
 
 calendars = CalendarCollection.new
