@@ -35,11 +35,15 @@ class Calendar
   def create_future_shifted_calendar(starting_date, finishing_date, offset)
     new_calendar = Icalendar::Calendar.new
     events_in_date_range(starting_date, finishing_date).each do |event|
-      event_start_time = event.dtstart
-      event_end_time = event.dtend
-      new_calendar.event do |e|
-        e.dtstart     = Icalendar::Values::DateTime.new event_start_time + offset + Time.now.utc_offset
-        e.dtend       = Icalendar::Values::DateTime.new event_end_time + offset + Time.now.utc_offset
+      event_start = Icalendar::Values::DateTime.new event.dtstart.in_time_zone('America/Denver') + offset.weeks
+      if event.dtend
+        event_end = Icalendar::Values::DateTime.new event.dtend.in_time_zone('America/Denver') + offset.weeks
+      else
+        event_end = event_start
+      end
+      new_event = new_calendar.event do |e|
+        e.dtstart     = event_start
+        e.dtend       = event_end
         e.summary     = event.summary
         e.description = event.description
       end
