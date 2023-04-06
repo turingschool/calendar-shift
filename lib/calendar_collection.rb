@@ -16,17 +16,20 @@ class CalendarCollection
     # BE Mod 3
     # "casimircreative.com_e9k9b6n7bok174ilmqbfdr0sc4@group.calendar.google.com",
 
-    # FE Mod 1:
+    # FE Mod 1 (Student):
     # "casimircreative.com_m6bndqol81h6jdlnpo0a6raot0@group.calendar.google.com"
 
+    # FE Mod 1 (ACCET):
+    # "c_a2e143c5dc2c7ceb868143108176d58ae83d20eed9110127dfad9c0c4310f9b6@group.calendar.google.com"
+
     # FE Mod 2:
-    # "casimircreative.com_cjiffoqvtajq43n5mn290cp744@group.calendar.google.com"
+    # "casimircreative.com_cjiffoqvtajq43n5mn290cp744@group.calendar.google.com",
 
     # FE Mod 3:
-    # "casimircreative.com_krb9p35ck35m4uoji5d2715844@group.calendar.google.com"
+    # "casimircreative.com_krb9p35ck35m4uoji5d2715844@group.calendar.google.com",
 
     # Combined Mod 4:
-    # "casimircreative.com_c1s3vspg5v09vh5cnnh88dn2nc@group.calendar.google.com"
+    # "casimircreative.com_c1s3vspg5v09vh5cnnh88dn2nc@group.calendar.google.com",
   ]
 
   def initialize
