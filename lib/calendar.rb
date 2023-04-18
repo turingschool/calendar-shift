@@ -1,13 +1,13 @@
-require 'icalendar'
-require 'open-uri'
+require "icalendar"
+require "open-uri"
+require "pry"
 
 class Calendar
-
   attr_reader :calendar
 
   def initialize(calendar_id)
-    ical = open(google_calendar_url_for(calendar_id)).read
-    @calendar = Icalendar.parse(ical).first
+    ical = URI.open(google_calendar_url_for(calendar_id)).read
+    @calendar = Icalendar::Calendar.parse(ical).first
   end
 
   def inspect
@@ -35,26 +35,64 @@ class Calendar
   def create_future_shifted_calendar(starting_date, finishing_date, offset)
     new_calendar = Icalendar::Calendar.new
     events_in_date_range(starting_date, finishing_date).each do |event|
-      event_start = Icalendar::Values::DateTime.new event.dtstart.in_time_zone('America/Denver') + offset.weeks
-      if event.dtend
-        event_end = Icalendar::Values::DateTime.new event.dtend.in_time_zone('America/Denver') + offset.weeks
+      all_day_event = false
+      if event.dtstart.class == Icalendar::Values::Date
+        all_day_event = true
+        event_start, event_end = shift_all_day_events(event, offset)
       else
-        event_end = event_start
+        event_start =
+          Icalendar::Values::DateOrDateTime.new event.dtstart.in_time_zone(
+                                                  "America/Denver",
+                                                ) + offset.weeks
+        if event.dtend
+          event_end =
+            Icalendar::Values::DateOrDateTime.new event.dtend.in_time_zone(
+                                                    "America/Denver",
+                                                  ) + offset.weeks
+        else
+          event_end = event_start
+        end
       end
-      new_event = new_calendar.event do |e|
-        e.dtstart     = event_start
-        e.dtend       = event_end
-        e.summary     = event.summary
-        e.description = event.description
-      end
+      new_event =
+        new_calendar.event do |e|
+          e.dtstart = event_start
+          e.dtstart.ical_param "VALUE", "DATE" if all_day_event
+          e.dtend = event_end
+          e.dtend.ical_param "VALUE", "DATE" if all_day_event
+          e.summary = event.summary
+          # If you don't want to scrub zoom links from your events, sub line 64 for line 65
+          # e.description = event.description
+          e.description = remove_zoom_links(event.description)
+        end
     end
     new_calendar
   end
 
   private
 
+  def shift_all_day_events(event, offset)
+    event_start =
+      Icalendar::Values::DateOrDateTime.new(event.dtstart + offset.weeks)
+    event_end =
+      Icalendar::Values::DateOrDateTime.new(event.dtend + offset.weeks)
+
+    [event_start, event_end]
+  end
+
   def google_calendar_url_for(calendar_id)
     "https://www.google.com/calendar/ical/#{calendar_id}/public/basic.ics"
   end
 
+  def remove_zoom_links(description)
+    if description.include?("Join Zoom Meeting")
+      start_of_zoom_nonsense = description.index("Join Zoom Meeting")
+      description = description[0, (start_of_zoom_nonsense - 1)]
+    end
+    if description != nil &&
+         description.index("https://turingschool.zoom.us/j") == 0
+      start_after_zoom_link = description.index("\n")
+      description = description[start_after_zoom_link..-1]
+    end
+    description
+  end
 end
