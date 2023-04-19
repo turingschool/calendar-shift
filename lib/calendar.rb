@@ -32,27 +32,23 @@ class Calendar
     end
   end
 
-  def create_future_shifted_calendar(starting_date, finishing_date, offset)
+  def create_future_shifted_calendar(
+    starting_date,
+    finishing_date,
+    offset,
+    remove_zoom_info
+  )
     new_calendar = Icalendar::Calendar.new
     events_in_date_range(starting_date, finishing_date).each do |event|
       all_day_event = false
+
       if event.dtstart.class == Icalendar::Values::Date
         all_day_event = true
-        event_start, event_end = shift_all_day_events(event, offset)
+        event_start, event_end = shift_all_day_event(event, offset)
       else
-        event_start =
-          Icalendar::Values::DateOrDateTime.new event.dtstart.in_time_zone(
-                                                  "America/Denver",
-                                                ) + offset.weeks
-        if event.dtend
-          event_end =
-            Icalendar::Values::DateOrDateTime.new event.dtend.in_time_zone(
-                                                    "America/Denver",
-                                                  ) + offset.weeks
-        else
-          event_end = event_start
-        end
+        event_start, event_end = shift_regular_event(event, offset)
       end
+
       new_event =
         new_calendar.event do |e|
           e.dtstart = event_start
@@ -60,9 +56,14 @@ class Calendar
           e.dtend = event_end
           e.dtend.ical_param "VALUE", "DATE" if all_day_event
           e.summary = event.summary
-          # If you don't want to scrub zoom links from your events, sub line 64 for line 65
-          # e.description = event.description
-          e.description = remove_zoom_links(event.description)
+          e.description =
+            (
+              if remove_zoom_info
+                remove_zoom_links(event.description)
+              else
+                event.description
+              end
+            )
         end
     end
     new_calendar
@@ -70,7 +71,23 @@ class Calendar
 
   private
 
-  def shift_all_day_events(event, offset)
+  def shift_regular_event(event, offset)
+    event_start =
+      Icalendar::Values::DateTime.new event.dtstart.in_time_zone(
+                                        "America/Denver",
+                                      ) + offset.weeks
+    if event.dtend
+      event_end =
+        Icalendar::Values::DateTime.new event.dtend.in_time_zone(
+                                          "America/Denver",
+                                        ) + offset.weeks
+    else
+      event_end = event_start
+    end
+    [event_start, event_end]
+  end
+
+  def shift_all_day_event(event, offset)
     event_start =
       Icalendar::Values::DateOrDateTime.new(event.dtstart + offset.weeks)
     event_end =

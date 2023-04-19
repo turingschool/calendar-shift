@@ -1,5 +1,5 @@
-require 'active_support'
-require './lib/calendar_collection'
+require "active_support"
+require "./lib/calendar_collection"
 
 puts "Enter start date -- the first day of the inning you want to copy:"
 print "<YYYY-MM-DD> (e.g. 2015-11-02)> "
@@ -13,19 +13,27 @@ puts "How many weeks of data are we copying (include intermission week/weeks AFT
 print "(default: 7)> "
 
 input = gets.chomp
-offset = if input.empty?
-           7
-         else
-           input.to_i
-         end
+offset = (input.empty? ? 7 : input.to_i)
+
+puts "Do you want to remove existing zoom links from your event description? (y/n)"
+print "(default: y)> "
+bool_input = gets.chomp
+remove_zoom_links = bool_input == "y" || bool_input.empty?
 
 calendars = CalendarCollection.new
 
 calendars.each do |calendar|
-  adjusted_calendar = calendar.create_future_shifted_calendar(start, finish, offset)
+  adjusted_calendar =
+    calendar.create_future_shifted_calendar(
+      start,
+      finish,
+      offset,
+      remove_zoom_links,
+    )
+
   filename = "#{calendar.title}-#{Time.now.to_i}.ics"
   outpath = File.expand_path("./output/#{filename}")
-  File.open(outpath, 'w') { |file| file.write(adjusted_calendar.to_ical) }
+  File.open(outpath, "w") { |file| file.write(adjusted_calendar.to_ical) }
   puts "Wrote shifted cal for #{calendar.title} to #{outpath}"
 end
 
