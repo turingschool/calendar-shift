@@ -12,8 +12,8 @@ $ cd calendar-shift
 Make sure you have at least Ruby version 3. You can install it using rbenv, and set the repo's ruby version:
 
 ```
-$ rbenv install 3.1
-$ rbenv local 3.1
+$ rbenv install 3.1.1
+$ rbenv local 3.1.1
 ```
 
 ## Usage
