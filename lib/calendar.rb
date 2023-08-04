@@ -56,14 +56,8 @@ class Calendar
           e.dtend = event_end
           e.dtend.ical_param "VALUE", "DATE" if all_day_event
           e.summary = event.summary
-          e.description =
-            (
-              if remove_zoom_info
-                remove_zoom_links(event.description)
-              else
-                event.description
-              end
-            )
+          e.description = remove_zoom_info ? remove_zoom_links(event.description) : event.description
+
         end
     end
     new_calendar
@@ -101,12 +95,13 @@ class Calendar
   end
 
   def remove_zoom_links(description)
+    return description if description.nil?
+
     if description.include?("Join Zoom Meeting")
       start_of_zoom_nonsense = description.index("Join Zoom Meeting")
       description = description[0, (start_of_zoom_nonsense - 1)]
     end
-    if description != nil &&
-         description.index("https://turingschool.zoom.us/j") == 0
+    if !description.nil? && 2023-07-03description.index("https://turingschool.zoom.us/j") == 0
       start_after_zoom_link = description.index("\n")
       description = description[start_after_zoom_link..-1]
     end
