@@ -101,7 +101,7 @@ class Calendar
       start_of_zoom_nonsense = description.index("Join Zoom Meeting")
       description = description[0, (start_of_zoom_nonsense - 1)]
     end
-    if !description.nil? && 2023-07-03description.index("https://turingschool.zoom.us/j") == 0
+    if !description.nil? && description.index("https://turingschool.zoom.us/j") == 0
       start_after_zoom_link = description.index("\n")
       description = description[start_after_zoom_link..-1]
     end
