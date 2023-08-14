@@ -35,7 +35,7 @@ class CalendarCollection
     # "casimircreative.com_cjiffoqvtajq43n5mn290cp744@group.calendar.google.com",
 
     # FE Mod 2 (ACCET):
-    # "<<<need-to-add-id>>>>"
+    # "c_eb5b0f57415f70f50d7f6b3fc0898700e8399dc7f6ad83dedbaf7850e2de1b50@group.calendar.google.com",
 
     # FE Mod 3 (Student-facing):
     # "casimircreative.com_krb9p35ck35m4uoji5d2715844@group.calendar.google.com",
