@@ -7,21 +7,6 @@ class CalendarCollection
   attr_reader :calendars
 
   CALENDARS = [
-    # Launch Mod 1 (Student-facing):
-    # "c_2o0kim19g8e75ag554m39v2ijs@group.calendar.google.com",
-
-    # Launch Mod 2 (Student-facing):
-    # "c_0e418906e01b04dbb4af2f3d1ff6757e3c3c6c432ce6f6f5d770705b5cb5c99a@group.calendar.google.com",
-
-    # Launch Mod 3 (Student-facing):
-    # "c_7337f3e40f326675a03c46d87288af589a8bd5d0cbc6298107b17617558dbb71@group.calendar.google.com",
-
-    # Launch Mod 4 (Student-facing):
-    # "c_36e04c3647362d655f537eb19e1ad42316b30c1db8693f5138135259349020ff@group.calendar.google.com",
-
-    # Launch Mod 5 (Student-facing):
-    # "c_a114e0d0ee348991aa2d3722965a13747e38e39fe29604f9972d8762e321798a@group.calendar.google.com",
-
     # BE Mod 1 (Student-facing):
     # "casimircreative.com_59k8msrrc2ddhcv787vubvp0s4@group.calendar.google.com",
 
@@ -63,6 +48,24 @@ class CalendarCollection
 
     # Combined Mod 4 (ACCET):
     # "c_9a564174f13832587674dab4bbe74395bbbe1b1efe57f9e9a62ad467b8e65b6c@group.calendar.google.com"
+
+    # Launch Mod 1 (Student-facing):
+    # "c_2o0kim19g8e75ag554m39v2ijs@group.calendar.google.com",
+
+    # Launch Mod 2 (Student-facing):
+    # "c_0e418906e01b04dbb4af2f3d1ff6757e3c3c6c432ce6f6f5d770705b5cb5c99a@group.calendar.google.com",
+
+    # Launch Mod 3 (Student-facing):
+    # "c_7337f3e40f326675a03c46d87288af589a8bd5d0cbc6298107b17617558dbb71@group.calendar.google.com",
+
+    # Launch Mod 4 (Student-facing):
+    # "c_36e04c3647362d655f537eb19e1ad42316b30c1db8693f5138135259349020ff@group.calendar.google.com",
+
+    # Launch Mod 5 (Student-facing):
+    # "c_a114e0d0ee348991aa2d3722965a13747e38e39fe29604f9972d8762e321798a@group.calendar.google.com",
+
+    # Launch Mod 6 (Student-facing):
+    # Not_Yet_Created
   ]
 
   def initialize
